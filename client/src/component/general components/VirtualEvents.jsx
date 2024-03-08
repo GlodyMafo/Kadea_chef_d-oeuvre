@@ -1,4 +1,4 @@
-export default function VirtualExpo() {
+export default function VirtualEvents() {
   return (
     <div className="flex max-w-md border   ">
       <div className="max-w-sm ">
