@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Schéma du modèle de données pour les utilisateurs, les rôles, les publications et les profils
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  username  String   
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  profile   Profile? // Relation avec le profil de l'utilisateur
+  posts     Post[]   // Ajouter un champ pour représenter les publications de l'utilisateur
+}
+
+// Définition du modèle Role pour définir les rôles des utilisateurs
+enum Role {
+  USER
+  ADMIN
+  CURATOR
+  ARTIST
+}
+
+// Définition du modèle Profile pour stocker les informations du profil
+model Profile {
+  id            Int      @id @default(autoincrement())
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int      @unique
+  userName      String   
+  profileImage  String?  // Photo de profil
+  coverImage    String?  // Photo de couverture
+  biography     String?  // Biographie
+  country       String?  // Pays de provenance
+}
+
+// Définition du modèle Post pour stocker les publications des utilisateurs
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  image     String
+  type        PostType
+  author      User     @relation(fields: [authorId], references: [id])
+  authorId    Int
+}
+
+// Définition de l'enum PostType pour spécifier le type de publication
+enum PostType {
+  EXPO // Ressources (publiées par les admins)
+  ARTWORK  // Œuvres d'art (publiées par les artistes et les curateurs)
+}

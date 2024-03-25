@@ -3,7 +3,7 @@
 export default function Button (props){
     return (
         <>
-         <button type={props.type || "button"} className={props.class}> {props.name} </button>
+         <button onClick={props.handleClick} type={props.type || "submit"} className={props.class}> {props.name} </button>
         </>
     )
    
