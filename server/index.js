@@ -1,16 +1,24 @@
-const express=require('express');
+const express = require('express');
 const port = 8000;
-const app=express();
+const app = express();
+var cors = require('cors')
 
-const loginRoute=require( 'server/Routes/loginRoute.js');
-const signupRoute=require('server/Routes/signupRoute.js');
+const loginRoute = require('./Routes/loginRoute.js');
+const signupRoute = require('./Routes/signupRoute.js');
+const profilRoute = require('./Routes/profilRoute.js');
+
+app.use(express.json());
+
+app.use(cors())
 
 
 
-app.use('/login',loginRoute);
+app.use('/login', loginRoute);
 
 app.use('/sign', signupRoute)
 
-app.listen(port, ()=>{
+app.use('/profil', profilRoute);
+
+app.listen(port, () => {
     console.log(`Notre application tourne sur le port : http://localhost:${port}`);
 })

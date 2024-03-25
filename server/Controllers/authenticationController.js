@@ -6,17 +6,18 @@ const jwt = require('jsonwebtoken');
 
 
 exports.signUpUser = async (req, res) => {
-    const { email, username, profil, password } = req.body;
+    const { email, username, role, password } = req.body;
 
     try {
         const existingUser = await prisma.user.findUnique({
             where: {
                 email,
+                username,
             },
         });
 
         if (existingUser) {
-            return res.status(400).json({ error: 'L\'adresse Email est déjà utilisée' });
+            return res.status(400).json({ error: 'L\'adresse Email ou le Nom d\'utilisateur sont déjà utilisés' });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -25,8 +26,8 @@ exports.signUpUser = async (req, res) => {
             data: {
                 email,
                 username,
-                profil,
-                password: hashedPassword,
+                role,
+                password:hashedPassword
             },
         });
 
@@ -34,23 +35,24 @@ exports.signUpUser = async (req, res) => {
 
         const newProfile = await prisma.profile.create({
             data: {
-                bio: null, // Vous pouvez initialiser ces valeurs à ce que vous voulez
-                avatar: null,
-                cover: null,
-                userName: {
-                    connect: {
-                        name : newUser.name
-                    }
-                },
+               
+                userName: newUser.username,
+                
                 user: {
                     connect: {
                         id: newUser.id, // Lien vers l'utilisateur nouvellement créé
                     },
                 },
+
+                profileImage: null,
+                coverImage: null,
+                biography: null,
+                country: null,
+
             },
         });
 
-        res.status(201).json({ newUser, newProfile });
+        res.status(201).json({ newUser, newProfile});
     } catch (error) {
         console.error('Error signing up:', error);
         res.status(500).json({ error: 'Il y a eu une erreur à l\'inscription veuillez ressayer' });

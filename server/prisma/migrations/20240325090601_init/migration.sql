@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Profile" ALTER COLUMN "userName" SET NOT NULL,
+ALTER COLUMN "userName" SET DATA TYPE TEXT;

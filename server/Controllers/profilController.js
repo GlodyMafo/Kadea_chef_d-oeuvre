@@ -19,26 +19,27 @@ exports.profilUsers = async (req, res) => {
 
 // // Ajouter un nouvel utilisateur
 
-exports.postProfil = async (req, res) => {
-    const { bio, avatar, cover, userId } = req.body;
+// exports.postProfil = async (req, res) => {
+//     const { profileImage, coverImage, biography, country} = req.body;
   
-    try {
-      // Créez un nouveau profil dans la base de données
-      const newProfile = await prisma.profile.create({
-        data: {
-          bio,
-          avatar,
-          cover,
-          userId,
-        },
-      });
+//     try {
+//       // Créez un nouveau profil dans la base de données
+//       const newProfile = await prisma.profile.create({
+//         data: {
+//           profileImage,
+//           coverImage,
+//           biography,
+//           country,
+//           userId
+//         },
+//       });
   
-      res.status(201).json(newProfile);
-    } catch (error) {
-      console.error('Error creating profile:', error);
-      res.status(500).json({ error: 'An error occurred while creating profile.' });
-    }
-  }
+//       res.status(201).json(newProfile);
+//     } catch (error) {
+//       console.error('Error creating profile:', error);
+//       res.status(500).json({ error: 'An error occurred while creating profile.' });
+//     }
+//   }
 
 
 // // Afficher un utilisateur par son id
@@ -70,7 +71,8 @@ exports.showProfilById = async (req, res) => {
 
 exports.editProfil = async (req, res) => {
     const { userId } = req.params;
-    const { bio, avatar, cover } = req.body;
+    const { profileImage, coverImage, biography, country } = req.body;
+    // const picturePaths = req.files.map(file => file.path);
   
     try {
       // Mettez à jour le profil dans la base de données en fonction de l'ID de l'utilisateur
@@ -79,9 +81,10 @@ exports.editProfil = async (req, res) => {
           userId: parseInt(userId),
         },
         data: {
-          bio,
-          avatar,
-          cover,
+          profileImage,
+          coverImage,
+          biography,
+          country
         },
       });
   
