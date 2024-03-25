@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.slick-slide > div {
+  margin: 25px 20px;
+}
+
+.Myslider {
+  height: 205px;
+  margin: auto;
+  /* position: relative; */
+  width: 90%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slide-tracking {
+  display: flex;
+  width: calc(250px * 18);
+  animation: slide 40s infinite linear;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 9));
+  }
+}
+
+
+.images {
+  width: 14rem;
+  margin-right: 2rem;
+  transition: transform 1%;
+}
+
+/* .images:hover {
+  transform: translateZ(20px);
+} */
+
+.Myslider::before,
+.Myslider::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  content:'';
+  height: 100%;
+  /* position:absolute; */
+  width: 15%;
+  z-index:2;
+}
+
+.Myslider::before{
+  left:0;
+  top:0;
+}
+
+.Myslider::after{
+  right: 0;
+  top:0;
+  transform: rotateZ(180deg)
+}
+
+.l{
+  color: #7373732d;
+}
+
+

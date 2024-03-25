@@ -1,0 +1,41 @@
+Arguments: 
+  /usr/bin/node /snap/node/8284/bin/yarn.js workspace server add express
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.19.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/user-9-c1/Documents/kadea/Chef_Doeuvre/server/package.json: Unexpected token } in JSON at position 85
+      at JSON.parse (<anonymous>)
+      at /snap/node/8284/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/snap/node/8284/lib/cli.js:310:30)
+      at /snap/node/8284/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "Chef_Doeuvre",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "private":true,
+    "workspaces":[
+      "server",
+      "client"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

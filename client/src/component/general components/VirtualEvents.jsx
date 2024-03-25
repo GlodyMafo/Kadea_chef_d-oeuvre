@@ -1,15 +1,17 @@
-export default function VirtualEvents() {
+
+
+export default function VirtualEvents(props) {
   return (
-    <div className="flex max-w-md border   ">
+    <div className="flex max-w-md border">
       <div className="max-w-sm ">
-        <img className=" h-full " src="src/asset/virtual2.jpg" alt="" />
+        <img className=" h-full " src={props.src} alt="" />
       </div>
 
       <div className="p-8 max-w-sm">
         <h3 className="text-3xl font-bold py-2.5 pb-6">
-          Exposition Congo Lubumbashi Joy.
+          {props.title}
         </h3>
-        <p className="pb-7">Par : Glody Mafo</p>
+        <p className="pb-7">Par : {props.author}</p>
         <hr className="pb-6" />
         <p className="text-sm font-light flex items-center" >
           <span className="pr-2">
@@ -37,7 +39,7 @@ export default function VirtualEvents() {
               </defs>
             </svg>
           </span>
-          Oct.15,2023{" "}
+          {props.date}
           <span className="pr-2 pl-4">
             <svg
               width="23"
@@ -55,8 +57,8 @@ export default function VirtualEvents() {
                 fill="#6B6363"
               />
             </svg>
-          </span>{" "}
-          80
+          </span>
+          {props.like}
         </p>
       </div>
     </div>
