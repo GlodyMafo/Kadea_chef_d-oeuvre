@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 
+// CREATION DE COMPTE
 
 exports.signUpUser = async (req, res) => {
     const { email, username, role, password } = req.body;
@@ -61,13 +62,14 @@ exports.signUpUser = async (req, res) => {
 
 
 
-// // Fonction pour la connexion
+// CONNEXION
 
 exports.logInUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Vérifiez si l'utilisateur existe
+        // Vérification de l'existance de l'utilisateur
+
         const user = await prisma.user.findUnique({
             where: {
                 email,
@@ -78,14 +80,16 @@ exports.logInUser = async (req, res) => {
             return res.status(400).json({ error: 'Email ou mot de passe incorrect' });
         }
 
-        // Vérifiez le mot de passe
+        // Vérification le mot de passe
+
         const passwordMatch = await bcrypt.compare(password, user.password);
 
         if (!passwordMatch) {
             return res.status(400).json({ error: 'Email ou mot de passe incorrect' });
         }
 
-        // Créez un jeton JWT pour l'utilisateur
+        // Le jeton jwt
+
         const token = jwt.sign({ userId: user.id }, 'your_secret_key');
 
         res.status(200).json({ token });
