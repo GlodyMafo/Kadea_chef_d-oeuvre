@@ -16,16 +16,16 @@ const upload = require('../Controllers/imgController.js');
 postRoute.get('/', postController.showPost);
 
 
-// Créer un nouveau tweet
+// Créer un nouveau post
 
-postRoute.post('/',upload.array('pictures', 5), postController.createPost);
+postRoute.post('/',upload.array('image', 1), postController.createPost);
 
 
 // Lire les post à partir de l'Id utilisateur
 
 postRoute.get('/:userId', postController.showAllByUserId );
 
-// Modification d'un tweet
+// Modification d'un post
 
 postRoute.put('/:id', postController.editPost);
 
@@ -37,4 +37,4 @@ postRoute.delete('/:id', postController.deletePost);
 
 // postRoute.post('/:id/like')
 
-// module.exports = postRoute;
+module.exports = postRoute;

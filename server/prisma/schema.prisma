@@ -50,7 +50,7 @@ model Post {
   id          Int      @id @default(autoincrement())
   title       String
   description String?
-  image       String
+  image       String[]
   type        PostType
   author      User     @relation(fields: [authorId], references: [id])
   authorId    Int

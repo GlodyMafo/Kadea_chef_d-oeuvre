@@ -12,7 +12,9 @@ app.use(express.json());
 
 app.use(cors())
 
-app.use('/post', postRoute );
+
+
+app.use('/post', postRoute);
 
 app.use('/login', loginRoute);
 

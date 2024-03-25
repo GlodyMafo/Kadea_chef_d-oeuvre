@@ -19,8 +19,11 @@ exports.showPost = async (req, res) => {
 // Créer un nouveau post
 
 exports.createPost = async (req, res) => {
-  const { title, description, type} = req.body;
+
+  const { title, description, type, author} = req.body;
   const picturePaths = req.files.map(file => file.path);
+
+//   console.log(picturePaths);
 
   try {
     // Créer un nouveau post dans la base de données avec les chemins des photos
@@ -29,7 +32,8 @@ exports.createPost = async (req, res) => {
         title,
         description,
         image : picturePaths,
-        type
+        type,
+        author
       },
     });
 
@@ -40,7 +44,7 @@ exports.createPost = async (req, res) => {
   }
 }
 
-// Lire les tweet à partir de l'Id utilisateur
+// Lire les post à partir de l'Id utilisateur
 
 exports.showAllByUserId = async (req, res) => {
   const { userId } = req.params;
@@ -60,7 +64,7 @@ exports.showAllByUserId = async (req, res) => {
   }
 }
 
-// Modification d'un tweet
+// Modification d'un post
 
 exports.editPost = async (req, res) => {
   const { id } = req.params;
