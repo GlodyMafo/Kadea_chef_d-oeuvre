@@ -35,7 +35,10 @@ exports.createPost = async (req, res) => {
         description,
         image : picturePaths,
         type,
-        author
+        include : {
+          author:true
+        }
+      
       },
     });
 
