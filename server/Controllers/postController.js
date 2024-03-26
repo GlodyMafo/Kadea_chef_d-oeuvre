@@ -26,7 +26,9 @@ exports.createPost = async (req, res) => {
 //   console.log(picturePaths);
 
   try {
-    // Créer un nouveau post dans la base de données avec les chemins des photos
+
+    
+  
     const newPost = await prisma.post.create({
       data: {
         title,
@@ -43,6 +45,7 @@ exports.createPost = async (req, res) => {
     res.status(500).json({ error: 'Erreur 500.' });
   }
 }
+
 
 // Lire les post à partir de l'Id utilisateur
 

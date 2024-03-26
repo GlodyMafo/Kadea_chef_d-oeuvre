@@ -7,6 +7,7 @@ const loginRoute = require('./Routes/loginRoute.js');
 const signupRoute = require('./Routes/signupRoute.js');
 const profilRoute = require('./Routes/profilRoute.js');
 const postRoute = require('./Routes/postRoute.js');
+const midleWare = require ('./Routes/midleware/midleware.js')
 
 app.use(express.json());
 
@@ -14,13 +15,17 @@ app.use(cors())
 
 
 
-app.use('/post', postRoute);
+
 
 app.use('/login', loginRoute);
 
 app.use('/sign', signupRoute);
 
+// app.use(midleWare)
+
 app.use('/profil', profilRoute);
+
+app.use('/post', postRoute);
 
 
 

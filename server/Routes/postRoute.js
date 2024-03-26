@@ -7,31 +7,31 @@ const postController = require('../Controllers/postController');
 
 const upload = require('../Controllers/imgController.js');
 
-// const authMiddlewar = require('./MiddleWare/miidleWareAuth.js');
+const authMiddleware = require('./midleware/midleware.js');
 
 
 
 // Lire tous les post
 
-postRoute.get('/', postController.showPost);
+postRoute.get('/',authMiddleware, postController.showPost);
 
 
 // Créer un nouveau post
 
-postRoute.post('/',upload.array('image', 1), postController.createPost);
+postRoute.post('/',authMiddleware,upload.array('image', 1), postController.createPost);
 
 
 // Lire les post à partir de l'Id utilisateur
 
-postRoute.get('/:userId', postController.showAllByUserId );
+postRoute.get('/:userId',authMiddleware, postController.showAllByUserId );
 
 // Modification d'un post
 
-postRoute.put('/:id', postController.editPost);
+postRoute.put('/:id',authMiddleware, postController.editPost);
 
 // Supprimer un tweet
 
-postRoute.delete('/:id', postController.deletePost);
+postRoute.delete('/:id',authMiddleware, postController.deletePost);
 
 //Liker un post 
 
