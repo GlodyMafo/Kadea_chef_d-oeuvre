@@ -120,7 +120,6 @@ enum PostType {
 // Définition du modèle Forum pour stocker les messages du forum
 model Question {
   id        Int      @id @default(autoincrement())
-  title     String
   content   String
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int

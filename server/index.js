@@ -23,7 +23,7 @@ app.use('/login', loginRoute);
 
 app.use('/sign', signupRoute);
 
-// app.use(midleWare)
+app.use(midleWare)
 
 app.use('/profil', profilRoute);
 
