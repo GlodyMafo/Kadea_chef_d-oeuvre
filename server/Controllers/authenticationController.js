@@ -52,7 +52,7 @@ exports.signUpUser = async (req, res) => {
             },
         });
 
-        res.status(201).json({ newUser, newProfile});
+        res.status(201).json({ newUser, newProfile, role});
     } catch (error) {
         console.error('Error signing up:', error);
         res.status(500).json({ error: 'Il y a eu une erreur à l\'inscription veuillez ressayer' });
@@ -89,9 +89,9 @@ exports.logInUser = async (req, res) => {
 
         // Le jeton jwt
 
-        const token = jwt.sign({ userId: user.id }, 'your_secret_key');
+        const token = jwt.sign({ userId: user.id}, 'your_secret_key');
 
-        res.status(200).json({ token });
+        res.status(200).json({ token, role:user.role});
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ error: 'Il y a eu une erreur lors votre connexion veuillez ressayer' });

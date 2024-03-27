@@ -23,8 +23,6 @@ app.use('/login', loginRoute);
 
 app.use('/sign', signupRoute);
 
-app.use(midleWare)
-
 app.use('/profil', profilRoute);
 
 app.use('/post', postRoute);
@@ -32,6 +30,10 @@ app.use('/post', postRoute);
 app.use('/question', questionRoute);
 
 app.use('/response', responseRoute);
+
+app.get('/protected', midleWare, (req, res) => {
+    res.json({ message: 'Contenu protégé' });
+  });
 
 
 

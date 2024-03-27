@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import Events from "../general components/Events";
 import Message, { ResponseChat } from "../general components/ChatModel";
 import Nav from "./NavBar";
+import { Link } from "react-router-dom";
+import Login from "../general components/Login";
 
 function Forum() {
+
+
   const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState("");
   const [answers, setAnswers] = useState({});
@@ -42,7 +46,12 @@ function Forum() {
 
   return (
 
+    // isConnect?
+
     <div>
+
+
+
       <div className="bg-gray-900">
       
       </div>
@@ -129,7 +138,7 @@ function Forum() {
           </div>
 
 
-    </div>
+    </div> 
   );
 }
 
