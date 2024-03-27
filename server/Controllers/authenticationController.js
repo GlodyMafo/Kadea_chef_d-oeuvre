@@ -13,7 +13,6 @@ exports.signUpUser = async (req, res) => {
         const existingUser = await prisma.user.findUnique({
             where: {
                 email,
-                username,
             },
         });
 

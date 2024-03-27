@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import photo from "client/src/assets/images/peint1.jpg";
+import axios from "axios";
 
 function SignUp() {
+  const [email, setemail] = useState("");
+  const [username, setUsername] = useState("");
+  const [role, setRole] = useState("");
+  const [password, setPassord] = useState("");
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = axios.post("http://localhost:8000/sign", {
+        email,
+        username,
+        role,
+        password,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(
+        "Errer inattendu lors de votre inscription veuillez réessayer :",
+        error
+      );
+    }
+  };
+
   return (
     <div
       className=" bg-center bg-cover h-screen flex justify-center items-center mx-auto"
       style={{ backgroundImage: "url('src/assets/images/background.jpg')" }}
     >
-
       <div className="flex w-2/4 pr-10 bg-white">
         <img className="w-2/4 pr-10" src={photo} alt="" />
         <div className="fex flex-col">
@@ -36,65 +60,79 @@ function SignUp() {
 
           <h3 className="text-2xl font-medium pb-4">Créer un compte</h3>
 
-          <form action="">
-            <label className="text-base " htmlFor="e-mail">
+          <form onSubmit={handleSignup}>
+            <label className="text-base " for="e-mail">
               Adresse E-mail :
             </label>
-            <br />
+          
             <input
-              className="h-10 w-full bg-gray-100 border border border-green-500"
+              className="h-10 w-full bg-gray-100 border border border-green-500 pl-2"
               type="email"
               name="e-mail"
+              value={email}
+              onChange={(e) => setemail(e.target.value)}
             />
-            <br />
-            <label className="text-base " htmlFor="UserName">
+            
+            <label className="text-base " for="UserName">
               Nom d'utilisateur :
             </label>
-            <br />
+           
             <input
-              className="h-10 w-full bg-gray-100 border border border-green-500"
+              className="h-10 w-full bg-gray-100 border border border-green-500 pl-2"
               type="texte"
               name="UserName"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
-            <br />
+          
             <label className="text-base" for="choix">
               Profil :
             </label>
-            <br />
+           
             <select
-              className="h-10 w-full bg-gray-100 border border border-green-500"
+              className="h-10 w-full bg-gray-100 border border border-green-500 pl-2"
               id="choix"
               name="choix"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
             >
-              <option value="option1">Artiste</option>
-              <option value="option2">Curateur</option>
-              <option value="option3">Autre</option>
+              <option value="CURATOR">Curateur</option>
+              <option value="ARTIST">Artiste</option>
+              <option value="USER">Autre</option>
             </select>
-            <label className="text-base " htmlFor="Password">
+            <label className="text-base " for="Password">
               Mot de passe :
             </label>
-            <br />
+           
             <input
-              className=" h-10 w-full bg-gray-100 border border border-green-500"
+              className=" h-10 w-full bg-gray-100 border border border-green-500 pl-2"
               type="password"
               name="Password"
+              value={password}
+              onChange={(e) => setPassord(e.target.value)}
             />
             <br />
 
-            <input
+            <button
+              className="bg-green-500 mt-6 w-full p-2 text-white font-bold mb-4 hover:bg-green-800 "
+              type="submit"
+            >
+              CREER UN COMPTE
+            </button>
+            {/* <input
               className="bg-green-500 mt-6 w-full p-2 text-white font-bold mb-4 "
               type="button"
               action="submit"
               value="CREER UN COMPTE"
-            />
+            /> */}
           </form>
 
           <p className="text-sm">
             Vous avez un compte ?
             <Link to="/connexion">
-            <span className="text-green-500 font-semibold cursor-pointer mx-2">
-              Connectez-vous.
-            </span>
+              <span className="text-green-500 font-semibold cursor-pointer mx-2">
+                Connectez-vous.
+              </span>
             </Link>
           </p>
 
@@ -112,7 +150,6 @@ function SignUp() {
         </div>
       </div>
     </div>
-
   );
 }
 

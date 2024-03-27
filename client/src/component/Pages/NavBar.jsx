@@ -5,7 +5,7 @@ import avatar from "client/src/assets/images/Glody.png";
 
 function Nav() {
   return (
-    <div className="flex items-center justify-between border-b bg-[#2D2828]">
+    <div className="flex items-center justify-between border-b bg-[#0F1A22]">
       <div className="flex items-center p-4 pl-8 border-r">
         <Link to="/">
           <svg

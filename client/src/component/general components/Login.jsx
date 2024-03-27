@@ -1,8 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import photo from "client/src/assets/images/peint1.jpg";
+import axios from "axios";
 
-export default function Login() {
+export default function Login({onLogin}) {
+const [email, setEmail]= useState("")
+const [password, setPassword] = useState("");
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post("http://localhost:8000/login", {
+      email,
+      password,
+    });
+    const token = response.data;
+    onLogin(token);
+    
+  } catch (error) {
+    console.error("Erreur de connexion :", error);
+  }
+};
+
+
   return (
     <div
     className=" bg-center bg-cover h-screen flex justify-center items-center mx-auto"
