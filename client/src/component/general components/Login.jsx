@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import photo from "client/src/assets/images/peint1.jpg";
 import axios from "axios";
 
@@ -10,7 +10,7 @@ export default function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/login", {
+      const response = await axios.post("http://localhost:800/login", {
         email,
         password,
       });

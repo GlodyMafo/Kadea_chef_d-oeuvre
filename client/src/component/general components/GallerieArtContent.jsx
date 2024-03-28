@@ -32,24 +32,34 @@ function GalleryArtContent() {
               className="mx-0 mb-6 w-full md:w-1/2 lg:w-1/4 px-8"
               key={index}
             >
-              <div className="card p-0 overflow-hidden shadow-md">
-                <img src={item.img} className="w-full max-h-[300px]  " />
-                <div className="card-body p-4">
-                  <Link to="/artiste">
-                    <h5 className="card-title text-xl font-semibold hover:text-green-500">
-                      {item.author}
-                    </h5>
-                  </Link>
-                  <p className="card-text font-medium">{item.titre}</p>
-                  <p>{item.desc}</p>
-                </div>
-              </div>
+               <div className="h-[16rem] w-[25rem]">
+              <figure>
+                <img className="h-[16rem] w-[25rem]"  src={item.img} alt="Mountains" />
+                <figcaption>
+                 
+                    <Link to="/artiste">
+                      <h1 >
+                        <span className="font-Coiny text-gray-100 font-bold text-2xl px-8 pt-8 hover:text-green-500">{item.author}</span>
+                         <br /> <span className="font-medieum text-xl text-gray-100 font-medium px-8 pt-8 hover:text-green-500 ">Visiter le profil</span>
+                      </h1>
+                    </Link>
+                    <p className="font-Coiny text-gray-100  px-8 text-2xl font-semibold"> Titre : .
+                      {item.titre}
+                    </p>
+                    <p className="font-Coiny text-gray-100  px-8 pb-6">
+                      {item.desc}{" "}
+                    </p>
+                 
+                </figcaption>
+              </figure>
             </div>
+            </div>
+            
           );
         })}
         <Button
           name="AFFICHER PLUS"
-          class="bg-gray-600 w-full text-white text-sm font-xl p-2.5 px-4 hover:bg-gray-800 ease duration-500 "
+          class="bg-green-500 w-full text-white text-sm font-xl p-2.5 px-4 hover:bg-green-800 ease duration-500 "
           handleClick={handleClick}
         />
       </div>
@@ -98,7 +108,7 @@ export function GalleryExpoContent() {
       </div>
       <Button
         name="AFFICHER PLUS"
-        class="bg-gray-600 w-full text-white text-sm font-xl p-2.5 px-4 hover:bg-gray-800 ease duration-500 "
+        class="bg-green-500 w-full text-white text-sm font-xl p-2.5 px-4 hover:bg-green-800 ease duration-500 "
         handleClick={handleClick}
       />
     </section>

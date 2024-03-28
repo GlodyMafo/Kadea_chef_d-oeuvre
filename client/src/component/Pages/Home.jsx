@@ -9,6 +9,7 @@ import Nav from "./NavBar";
 function Home() {
   return (
     <div className="bg-white pb-[70rem]">
+			
       {/* HEADER */}
       <div
         className=" bg-center bg-cover h-screen"
@@ -50,6 +51,7 @@ function Home() {
         <BodySection3 />
       </div>
     </div>
+     
   );
 }
 

@@ -13,7 +13,7 @@ function SignUp() {
     e.preventDefault();
 
     try {
-      const response = axios.post("http://localhost:8000/sign", {
+      const response = axios.post("http://localhost:800/sign", {
         email,
         username,
         role,

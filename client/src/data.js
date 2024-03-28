@@ -1,4 +1,4 @@
-import img1 from "client/src/assets/images/pexels-anna-shvets-5641959.jpg"
+
 import img2 from "client/src/assets/images/pexels-antonio-filigno-10287303.jpg"
 import img3 from "client/src/assets/images/pexels-brett-sayles-2480111.jpg"
 import cover1 from "client/src/assets/images/virtual2.jpg"
@@ -8,7 +8,7 @@ export const data = {
     cardData: [
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -18,46 +18,6 @@ export const data = {
         {
             id: 1,
             img: img3,
-            author: "Glody",
-            titre: "Good vibe",
-            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
-            
-
-
-        },
-        {
-            id: 1,
-            img: img2,
-            author: "Glody",
-            titre: "Good vibe",
-            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
-            
-
-
-        },
-        {
-            id: 1,
-            img: img3,
-            author: "Glody",
-            titre: "Good vibe",
-            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
-            
-
-
-        },
-        {
-            id: 1,
-            img: img1,
-            author: "Glody",
-            titre: "Good vibe",
-            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
-            
-
-
-        },
-        {
-            id: 1,
-            img: img2,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -107,7 +67,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img2,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -117,7 +77,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -127,7 +87,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -137,7 +97,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img2,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -147,7 +107,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -157,7 +117,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -167,7 +127,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -177,7 +137,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -187,7 +147,7 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
@@ -197,7 +157,47 @@ export const data = {
         },
         {
             id: 1,
-            img: img1,
+            img: img3,
+            author: "Glody",
+            titre: "Good vibe",
+            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
+            
+
+
+        },
+        {
+            id: 1,
+            img: img3,
+            author: "Glody",
+            titre: "Good vibe",
+            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
+            
+
+
+        },
+        {
+            id: 1,
+            img: img3,
+            author: "Glody",
+            titre: "Good vibe",
+            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
+            
+
+
+        },
+        {
+            id: 1,
+            img: img3,
+            author: "Glody",
+            titre: "Good vibe",
+            desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",
+            
+
+
+        },
+        {
+            id: 1,
+            img: img3,
             author: "Glody",
             titre: "Good vibe",
             desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Voluptatum quaerat, magni dolores inventore assumenda teneturnatus?",

@@ -68,6 +68,7 @@ export default BodySection1;
 
 export function BodySection2() {
   return (
+
     <div className="p-20">
       <div className="w-full pt-[8rem] ">
         <div className="ml-[30rem] ">
@@ -121,6 +122,7 @@ export function BodySection2() {
         </div>
       </div>
     </div>
+    
   );
 }
 

@@ -73,3 +73,84 @@
 }
 
 
+/*Start Animations*/
+@-webkit-keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+@-webkit-keyframes zoomIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		-webkit-transform: scale3d(0.3, 0.3, 0.3);
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+
+
+ /* Gallery */
+
+
+figure {
+  display: grid;
+  overflow: hidden;
+  cursor: pointer;
+}
+figure > * {
+  grid-area: 1/1;
+  transition: .2s;
+}
+
+figure figcaption  {
+  display: grid;
+  align-items: end;
+  background: #0009;
+  clip-path: inset(0 var(--_i,100%) 0 0);
+  height: 16rem;
+  width: 25rem;
+  margin: -1px;
+}
+
+figure:hover figcaption{
+  --_i: 0%;
+}
+figure:hover img {
+  transform: scale(1.2);
+}
+@supports not (-webkit-mask-clip: text) {
+  figure figcaption {
+   -webkit-mask: none;
+   color: #fff;
+  }
+}
+
+
