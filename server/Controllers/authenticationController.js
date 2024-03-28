@@ -66,7 +66,6 @@ exports.signUpUser = async (req, res) => {
 exports.logInUser = async (req, res) => {
     const { email, password } = req.body;
 
-    console.log({ email, password });
 
     try {
         // Vérification de l'existance de l'utilisateur
