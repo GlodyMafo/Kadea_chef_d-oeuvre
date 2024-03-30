@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const UserTable = ({ users, onDeleteUser, onSendEmail }) => {
+
+const UserTable = ({users, onDeleteUser, onSendEmail }) => {
+
   const [selectedUser, setSelectedUser] = useState(null);
+ 
 
   const handleDeleteUser = () => {
     onDeleteUser(selectedUser);
@@ -15,6 +18,10 @@ const UserTable = ({ users, onDeleteUser, onSendEmail }) => {
     onSendEmail(selectedUser);
     setSelectedUser(null);
   };
+
+  
+
+ 
 
   return (
     <div className="container mx-auto mt-4">
@@ -47,17 +54,17 @@ const UserTable = ({ users, onDeleteUser, onSendEmail }) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {users.map((item, index) => (
             <tr key={index}>
               <td className="border px-4 py-2 text-gray-500">
-                {user.username}
+                {item.username}
               </td>
-              <td className="border px-4 py-2 text-gray-500">{user.email}</td>
+              <td className="border px-4 py-2 text-gray-500">{item.email}</td>
               <td className="border px-4 py-2 text-gray-500">
-                {user.userType}
+                {item.role}
               </td>
               <td className="border px-4 py-2 text-gray-500">
-                <button onClick={() => setSelectedUser(user)}>
+                <button onClick={() => setSelectedUser(users)}>
                   Sélectionner
                 </button>
               </td>

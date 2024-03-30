@@ -8,6 +8,8 @@ const postController = require('../Controllers/postController');
 const upload = require('../Controllers/imgController.js');
 
 const authMiddleware = require('./midleware/midleware.js');
+const restrictMidleware = require('./midleware/restrict.js')
+
 
 
 
@@ -18,7 +20,7 @@ postRoute.get('/',authMiddleware, postController.showPost);
 
 // Créer un nouveau post
 
-postRoute.post('/',authMiddleware,upload.array('image', 1), postController.createPost);
+postRoute.post('/',authMiddleware,restrictMidleware('ARTIST'),upload.array('image', 1), postController.createPost);
 
 
 // Lire les post à partir de l'Id utilisateur

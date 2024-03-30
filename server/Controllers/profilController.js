@@ -2,6 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 
+
 // //voir les profils
 
 exports.profilUsers = async (req, res) => {
@@ -17,32 +18,28 @@ exports.profilUsers = async (req, res) => {
     }
   }
 
-// // Ajouter un nouvel utilisateur
-
-// exports.postProfil = async (req, res) => {
-//     const { profileImage, coverImage, biography, country} = req.body;
+ 
+  //profil connecté
   
-//     try {
-//       // Créez un nouveau profil dans la base de données
-//       const newProfile = await prisma.profile.create({
-//         data: {
-//           profileImage,
-//           coverImage,
-//           biography,
-//           country,
-//           userId
-//         },
-//       });
+  exports.connectedProfil=async (req, res) => {
+    const { userId } = req.id;
+    try {
+      const userProfile = await prisma.profile.findUnique({
+        where: {
+          userId: userId, 
+        },
+      });
   
-//       res.status(201).json(newProfile);
-//     } catch (error) {
-//       console.error('Error creating profile:', error);
-//       res.status(500).json({ error: 'An error occurred while creating profile.' });
-//     }
-//   }
-
-
-// // Afficher un utilisateur par son id
+      if (!userProfile) {
+        return res.status(404).json({ message: 'Profil introuvable' });
+      }
+  
+      res.json(userProfile);
+    } catch (error) {
+      console.error('Erreur lors de la récupération du profil:', error);
+      res.status(500).json({ message: 'Erreur serveur' });
+    }
+  };
 
 exports.showProfilById = async (req, res) => {
     const { userId } = req.params;

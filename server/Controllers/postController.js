@@ -35,9 +35,7 @@ exports.createPost = async (req, res) => {
         description,
         image : picturePaths,
         type,
-        include : {
-          author:true
-        }
+        authorId: req.user.userId
       
       },
     });
@@ -136,7 +134,6 @@ exports.deletePost = async (req, res) => {
     res.status(500).json({ error: 'Erreur 500.' });
   }
 };
-
 //faire un like
 
 // exports.likePost= async (req, res) => {

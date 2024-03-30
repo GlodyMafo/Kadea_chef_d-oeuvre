@@ -14,6 +14,7 @@ import Artiste from "./component/Pages/Artistes";
 import Nav from "./component/Pages/NavBar";
 import Login from "./component/general components/Login";
 import SignUp from "./component/general components/SignUp";
+import Admin from "./component/Pages/Admin";
 
 function App() {
   const [token, setToken] = useState("");
@@ -38,9 +39,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/mediatheque" element={<Mediatheque />} />
-            {/* <Route path="/mediatheque">
-              {token? (<Mediatheque/>):(<Redirect to="connexion"/>)}
-            </Route> */}
+           
             <Route path="/gallerie" element={<Gallery />} />
             <Route path="/forum" element={<Forum />} />
             <Route path="/contact" element={<Contact />} />
@@ -50,9 +49,7 @@ function App() {
             />
             <Route path="/inscription" element={<SignUp />} />
             <Route path="/content" element={<MediathequeRessource />} />
-            {/* <Route path="artiste">
-              {token && role=="ARTIST" ? (<Artiste/>) : (<Redirect to="/connexion"/>)}
-            </Route> */}
+          
             <Route path="/artiste" element={<Artiste />} />
             <Route path="/curateur" element={<Curateur />} />
             <Route path="/visite" element={<Visite />} />
@@ -65,6 +62,7 @@ function App() {
       <div>
         <Footer />
       </div>
+
     </div>
   );
 }

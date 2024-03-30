@@ -1,5 +1,5 @@
 import avatar from "client/src/assets/images/Glody.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserTable from "client/src/component/general components/TableAdmin.jsx";
 import UsersCard, {
   ExpositionCard,
@@ -13,32 +13,38 @@ import MenuDeroulant, {
 } from "../general components/MenuAdmin";
 import Message from "../general components/ChatModel";
 import MessageAdmin from "../general components/MenuAdmin";
+import axios from 'axios';
 
 function Admin() {
-  const [users, setUsers] = useState([
-    { username: "glody Mafo", email: "glody@gmail.com", userType: "Artiste" },
-    { username: "Mafo", email: "mafo2@yahoo.fr", userType: "Curateur" },
-    { username: "glody Mafo", email: "glody@gmail.com", userType: "Artiste" },
-    { username: "Mafo", email: "mafo2@yahoo.fr", userType: "Curateur" },
-    { username: "glody Mafo", email: "glody@gmail.com", userType: "Artiste" },
-    { username: "Mafo", email: "mafo2@yahoo.fr", userType: "Curateur" },
-    { username: "glody Mafo", email: "glody@gmail.com", userType: "Artiste" },
-    { username: "Mafo", email: "mafo2@yahoo.fr", userType: "Curateur" },
-    { username: "glody Mafo", email: "glody@gmail.com", userType: "Artiste" },
-    { username: "Mafo", email: "mafo2@yahoo.fr", userType: "Curateur" },
-    { username: "glody Mafo", email: "glody@gmail.com", userType: "Artiste" },
 
-    // Ajoutez autant d'utilisateurs que nécessaire
-  ]);
+  const [utilisateurs, setUtilisateurs]=useState([]);
 
   const deleteUser = (userToDelete) => {
-    setUsers(users.filter((user) => user !== userToDelete));
+    setUsers(utilisateurs.filter((user) => user !== userToDelete));
   };
 
   const sendEmail = (user) => {
-    // Logique pour envoyer un e-mail à l'utilisateur
     console.log(`E-mail envoyé à ${user.email}`);
   };
+
+  useEffect (()=>{
+    const fectchUtilisateurs=async ()=>{
+      try {
+        const response = axios.get("http://localhost:8000/user")
+        .then(response=>{
+          setUtilisateurs(response.data)
+        })
+
+        // setUtilisateurs(response);
+        
+        
+      } catch(error){
+        console.error("Erreur lors de la récupération des utilisateurs:", error);
+      }
+    };
+    fectchUtilisateurs();
+  },[] )
+
 
   return (
     <div className="">
@@ -149,7 +155,7 @@ function Admin() {
         <div className="w-[80%]">
           <h2 className="font-bold text-4xl p-12">Tableau de bord</h2>
           <div className="flex flex-wrap justify-between  items-center px-12 pb-14">
-            <UsersCard number={users.length} />
+            <UsersCard number={utilisateurs.length}/>
             <OeuvreCard />
             <ExpositionCard />
           </div>
@@ -160,7 +166,7 @@ function Admin() {
                 Liste des Utilisateurs
               </h1>
               <UserTable
-                users={users}
+                users={utilisateurs}
                 onDeleteUser={deleteUser}
                 onSendEmail={sendEmail}
               />

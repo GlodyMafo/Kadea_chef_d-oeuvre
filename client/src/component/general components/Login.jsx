@@ -10,15 +10,17 @@ export default function Login({ onLogin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:800/login", {
+      const response = await axios.post("http://localhost:8000/login", {
         email,
         password,
       });
       const token = response.data;
-      const role=response.data.role
+      // const role = response.data.role;
+
+      localStorage.setItem("myToken", JSON.stringify(token));
       // console.log(role)
       onLogin(token, role);
-      // console.log(token);
+      console.log(token);
     } catch (error) {
       console.error("Erreur de connexion :", error);
     }

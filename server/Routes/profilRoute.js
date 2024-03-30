@@ -6,14 +6,14 @@ const profilController = require('../Controllers/profilController.js')
 
 const upload = require('../Controllers/imgController.js');
 
-
+const authMiddleware = require('./midleware/midleware.js');
 
 // voir tous les utilisateurs
 
 profilRoutes.get('/', profilController.profilUsers);
 
 
-
+profilRoutes.get('/idProfil', authMiddleware, profilController.connectedProfil);
 // Lire un profil
 
 profilRoutes.get('/:userId', profilController.showProfilById);

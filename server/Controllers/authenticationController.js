@@ -2,6 +2,8 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
+
 
 
 // CREATION DE COMPTE
@@ -90,11 +92,15 @@ exports.logInUser = async (req, res) => {
 
         // Le jeton jwt
 
-        const token = jwt.sign({ userId: user.id }, 'your_secret_key');
+        // const token = jwt.sign({ userId: user.id }, 'your_secret_key');
 
-        res.status(200).json({ token, role: user.role });
+        // res.status(200).json(token);
+
+        const token = jwt.sign({ id: user.id, role: user.role }, 'your_secret_key');
+    res.json({ token });
+    
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ error: 'Il y a eu une erreur lors votre connexion veuillez ressayer' });
     }
-}
+} 

@@ -1,9 +1,10 @@
 import avatar from "client/src/assets/images/Glody.png";
 import cover from "client/src/assets/images/pexels-daian-gan-102127.jpg";
 import Button from "./Button";
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import ModalProfil from "./ModalProfil";
 import ReactModal from "react-modal";
+import axios from "axios";
 
 function ProfilModel() {
   const customStyles = {
@@ -19,29 +20,43 @@ function ProfilModel() {
     },
   };
 
-  // const [modal, setModal] = useState(false);
+  
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [userProfil, setUserProfil]=useState(null);
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = "#f00";
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
+  // pour le modal
 
   const toggleModal = () => {
     setIsOpen(!modalIsOpen);
-    console.log("c'est bon");
   };
 
+  // pour le profil
+
+  useEffect(()=>{
+    const fetchUserProfile=async ()=>{
+      try{
+        const token = localStorage.getItem('myToken')
+        const response = axios.get('http://localhost:8000/profil/idProfil', {
+          headers:{
+            Authorization: `Bearer ${token}`,
+          }
+        } );
+
+        setUserProfil(response);
+        console.log(response.data);
+      } catch(error){
+        console.error('Erreur lors de la récupération des informations de profil:', error);
+      }
+    };
+
+    fetchUserProfile();
+  }, [] );
+
   return (
+    <> 
+
+{userProfil? ( 
+
     <div className="relative">
       <div className="relative w-full  ">
         <div>
@@ -56,7 +71,7 @@ function ProfilModel() {
           <div className="flex w-full justify-between pl-6">
             <div className="pr-20 w-full">
               <p className="text-4xl pb-2 font-bold text-gray-100 shadow ">
-                Glody Mafo
+                {userProfil.userName}
               </p>
               <p className="w-3/5 pb-2 text-gray-100 text-2xl font-semibold shadow">
                 Artiste Peintre
@@ -101,6 +116,9 @@ function ProfilModel() {
         <ModalProfil />
       </ReactModal>
     </div>
+    ) : ( <p>Chargement ...</p> )}
+
+    </>
   );
 }
 
