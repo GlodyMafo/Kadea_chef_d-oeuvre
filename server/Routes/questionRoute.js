@@ -1,18 +1,19 @@
 const express= require ('express')
+const protect = require('../Routes/midleware/midleware');
 
 const questionRoute = express.Router();
 
 const questionController = require('../Controllers/questionForum.js');
 
-questionRoute.get('/', questionController.showQuestions);
+questionRoute.get('/', protect.authenticateUser, questionController.showQuestions);
 
-questionRoute.post('/', questionController.createMessage);
+questionRoute.post('/', protect.authenticateUser, questionController.createMessage);
 
-questionRoute.get('/:id', questionController.showQuestionById);
+questionRoute.get('/:id', protect.authenticateUser, questionController.showQuestionById);
 
-questionRoute.put('/:id', questionController.updateQuestion);
+questionRoute.put('/:id',protect.authenticateUser,  questionController.updateQuestion);
 
-questionRoute.delete('/:id', questionController.deleteQuestion);
+questionRoute.delete('/:id',protect.authenticateUser, questionController.deleteQuestion);
 
 module.exports=questionRoute;
 

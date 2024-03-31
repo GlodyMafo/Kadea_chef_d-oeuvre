@@ -13,8 +13,8 @@ exports.createReplie = async (req, res) => {
     const answer = await prisma.answer.create({
       data: {
         content,
-        authorId,
-        questionId,
+        authorId: req.user.userId,
+        questionId:1,
       },
     });
     res.json(answer);

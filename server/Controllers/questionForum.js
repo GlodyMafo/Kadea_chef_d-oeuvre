@@ -12,7 +12,7 @@ exports.createMessage = async (req, res) => {
     const question = await prisma.question.create({
       data: {
         content,
-        authorId,
+        authorId:req.user.userId,
       },
     });
     res.json(question);

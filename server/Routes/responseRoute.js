@@ -1,17 +1,18 @@
 const express= require ('express')
+const protect = require('../Routes/midleware/midleware');
 
 const responseRoute=express.Router();
 
 const responseController = require ('../Controllers/responseForum.js')
 
-responseRoute.get('/', responseController.showReplies);
+responseRoute.get('/', protect.authenticateUser,responseController.showReplies);
 
-responseRoute.post('/', responseController.createReplie);
+responseRoute.post('/',protect.authenticateUser, responseController.createReplie);
 
-responseRoute.get('/:id', responseController.showReplieById);
+responseRoute.get('/:id',protect.authenticateUser, responseController.showReplieById);
 
-responseRoute.put('/:id', responseController.updateReplie);
+responseRoute.put('/:id', protect.authenticateUser,responseController.updateReplie);
 
-responseRoute.delete('/:id', responseController.deleteReplie),
+responseRoute.delete('/:id',protect.authenticateUser, responseController.deleteReplie),
 
 module.exports=responseRoute;

@@ -7,33 +7,33 @@ const postController = require('../Controllers/postController');
 
 const upload = require('../Controllers/imgController.js');
 
-const authMiddleware = require('./midleware/midleware.js');
-const restrictMidleware = require('./midleware/restrict.js')
+const protect = require('../Routes/midleware/midleware');
+
 
 
 
 
 // Lire tous les post
 
-postRoute.get('/',authMiddleware, postController.showPost);
+postRoute.get('/',protect.authenticateUser, postController.showPost);
 
 
 // Créer un nouveau post
 
-postRoute.post('/',authMiddleware,restrictMidleware('ARTIST'),upload.array('image', 1), postController.createPost);
+postRoute.post('/',protect.authenticateUser,protect.authorizeRoles('ADMIN','ARTIST','CURATOR'), upload.array('image', 1), postController.createPost);
 
 
 // Lire les post à partir de l'Id utilisateur
 
-postRoute.get('/:userId',authMiddleware, postController.showAllByUserId );
+postRoute.get('/:userId',protect.authenticateUser, postController.showAllByUserId );
 
 // Modification d'un post
 
-postRoute.put('/:id',authMiddleware, postController.editPost);
+postRoute.put('/:id',protect.authenticateUser, postController.editPost);
 
 // Supprimer un tweet
 
-postRoute.delete('/:id',authMiddleware, postController.deletePost);
+postRoute.delete('/:id',protect.authenticateUser, postController.deletePost);
 
 //Liker un post 
 
