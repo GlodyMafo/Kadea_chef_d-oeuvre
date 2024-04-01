@@ -42,6 +42,7 @@ model Profile {
   profileImage String? // Photo de profil
   coverImage   String? // Photo de couverture
   biography    String? // Biographie
+  titre        String?
   country      String? // Pays de provenance
 }
 

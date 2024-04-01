@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import ModalProfil from "./ModalProfil";
 import ReactModal from "react-modal";
 import axios from "axios";
+import defaultAvatar from 'client/src/assets/icons/carbon_user-avatar-filled.svg'
 
 function ProfilModel() {
   const customStyles = {
@@ -19,6 +20,8 @@ function ProfilModel() {
       border: "none",
     },
   };
+
+
 
   const [modalIsOpen, setIsOpen] = useState(false);
   const [userProfil, setUserProfil] = useState(null);
@@ -36,16 +39,17 @@ function ProfilModel() {
       try {
         const token = JSON.parse(localStorage.getItem("myToken"));
 
-        console.log(token.user);
+        // console.log(token.user);
 
-        // const response = axios.get("http://localhost:8000/me", {
-        //   headers: {
-        //     Authorization: token.token,
-        //   },
-        // });
+        const response =  await axios.get("http://localhost:8000/me", {
+          headers: {
+            Authorization: token.token,
+          },
+        });
 
-        // setUserProfil(response.data);
-        // console.log(response.data);
+        setUserProfil(response.data);
+        console.log(response.data);
+       
       } catch (error) {
         console.error(
           "Erreur lors de la récupération des informations de profil:",
@@ -56,6 +60,8 @@ function ProfilModel() {
 
     fetchUserProfile();
   }, []);
+
+  
   return (
     <>
       <div className="relative">
@@ -66,8 +72,8 @@ function ProfilModel() {
           <div className="flex items-center p-14  w-full absolute bottom-0 right-0 bg-[#0000003a]">
             <img
               className="w-40 h-40 border rounded-full border-4 border-green-500"
-              src={avatar}
-              alt=""
+              src={userProfil && userProfil.profilImage ? userProfil.profilImage : defaultAvatar}
+              alt="image de profil"
             />
             <div className="flex w-full justify-between pl-6">
               <div className="pr-20 w-full">
@@ -75,13 +81,13 @@ function ProfilModel() {
                   {userProfil?.userName}
                 </p>
                 <p className="w-3/5 pb-2 text-gray-100 text-2xl font-semibold shadow">
-                  Artiste Peintre
+                  {userProfil?.titre}
                 </p>
                 <p className="w-3/5 font-medium text-xl text-gray-100">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  {userProfil?.biography}
                 </p>
                 <p className="font-sm text-gray-100">
-                  République Démocratique du Congo | Lubumbashi
+                 {userProfil?.country}
                 </p>
               </div>
               <div
