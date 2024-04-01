@@ -40,7 +40,7 @@ function ModalArt() {
         {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token.token}`,
+            Authorization: token.token,
           },
         }
       );
@@ -169,3 +169,7 @@ function ModalArt() {
 }
 
 export default ModalArt;
+
+
+
+

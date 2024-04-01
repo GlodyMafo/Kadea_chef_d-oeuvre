@@ -25,7 +25,6 @@ function Artiste() {
     setHideElement(hideElement + 8);
   };
 
-  console.log(hideElement);
 
   return (
     <div>
@@ -42,6 +41,8 @@ function Artiste() {
           <MyFavorites />
 
           <h2 className="px-[5.5rem] pt-[4rem] text-xl">Toutes mes oeuvres</h2>
+
+          
           {/* <GalleryArtContent /> */}
 
           <div className="flex flex-wrap justify-between p-10">

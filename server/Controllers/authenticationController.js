@@ -12,17 +12,17 @@ exports.signUpUser = async (req, res) => {
     const { email, username, role, password } = req.body;
 
     try {
-      
+
         if (!email || !username || !password) {
             return res.status(400).json({ error: 'Veuillez fournir une adresse email, un nom d\'utilisateur et un mot de passe.' });
         }
 
-     
+
         if (!validator.isEmail(email)) {
             return res.status(400).json({ error: 'Veuillez fournir une adresse email valide.' });
         }
 
-        
+
         if (username.length > 8) {
             return res.status(400).json({ error: 'Le nom d\'utilisateur ne peut pas dépasser 8 lettres.' });
         }
@@ -37,7 +37,7 @@ exports.signUpUser = async (req, res) => {
             return res.status(400).json({ error: 'L\'adresse Email ou le Nom d\'utilisateur sont déjà utilisés' });
         }
 
-     
+
         const existingUsername = await prisma.user.findUnique({
             where: {
                 username,
@@ -60,24 +60,26 @@ exports.signUpUser = async (req, res) => {
         });
 
         // Création d'un nouveau profil lié à l'utilisateur nouvellement créé
-      if (['ADMIN', 'ARTIST', 'CURATOR'].includes(role)) {await prisma.profile.create({
-            data: {
-                userName: newUser.username,
-                user: {
-                    connect: {
-                        id: newUser.id, 
+        if (['ADMIN', 'ARTIST', 'CURATOR'].includes(role)) {
+            await prisma.profile.create({
+                data: {
+                    userName: newUser.username,
+                    user: {
+                        connect: {
+                            id: newUser.id,
+                        },
                     },
+                    profileImage: null,
+                    coverImage: null,
+                    biography: null,
+                    country: null,
                 },
-                profileImage: null,
-                coverImage: null,
-                biography: null,
-                country: null,
-            },
-        })};
+            })
+        };
 
         // await sendEmail(newUser.email);
 
-        
+
         res.status(201).json({ newUser, role });
     } catch (error) {
         console.error('Error signing up:', error);
@@ -92,7 +94,7 @@ exports.logInUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-     
+
         if (!email || !password) {
             return res.status(400).json({ error: 'Veuillez fournir une adresse email et un mot de passe.' });
         }
@@ -107,7 +109,7 @@ exports.logInUser = async (req, res) => {
             return res.status(400).json({ error: 'Email ou mot de passe incorrect' });
         }
 
-    
+
         const passwordMatch = await bcrypt.compare(password, user.password);
 
         if (!passwordMatch) {
@@ -115,10 +117,38 @@ exports.logInUser = async (req, res) => {
         }
 
         const token = jwt.sign({ role: user.role, userId: user.id }, "my_token");
-        
-        res.json({ token, user});
+
+        res.json({ token, user });
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ error: 'Il y a eu une erreur lors votre connexion veuillez ressayer' });
     }
 }
+
+exports.showConnectedProfil = async (req, res) => {
+
+
+    const token = req.header('Authorization')
+
+    try {
+
+        const decoded = jwt.verify(token, 'my_token');
+        const userId = decoded.userId;
+
+        const profile = await prisma.profile.findUnique({
+            where: {
+                userId: userId,
+            },
+        });
+
+        if (!profile) {
+            return res.status(404).json({ error: 'Profile not found.' });
+        }
+
+        res.status(200).json(profile);
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        res.status(500).json({ error: 'An error occurred while fetching profile.' });
+    }
+};
+
