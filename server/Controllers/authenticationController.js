@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const validator = require('validator');
+// const { sendEmail } = require('server/Controllers/confirmation.js');
 // require('dotenv').config();
 
 // CREATION DE COMPTE
@@ -73,6 +74,8 @@ exports.signUpUser = async (req, res) => {
                 country: null,
             },
         })};
+
+        // await sendEmail(newUser.email);
 
         
         res.status(201).json({ newUser, role });

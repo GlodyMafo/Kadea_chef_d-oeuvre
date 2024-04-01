@@ -32,39 +32,38 @@ function App() {
   // const isConnect=token
 
   return (
-    // <div className="font-Mont">
-    //   <BrowserRouter>
-    //     <div>
-    //       <Nav />
-    //       <Routes>
-    //         <Route exact path="/" element={<Home />} />
-    //         <Route path="/mediatheque" element={<Mediatheque />} />
+    <div className="font-Mont">
+      <BrowserRouter>
+        <div>
+          <Nav />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/mediatheque" element={<Mediatheque />} />
            
-    //         <Route path="/gallerie" element={<Gallery />} />
-    //         <Route path="/forum" element={<Forum />} />
-    //         <Route path="/contact" element={<Contact />} />
-    //         <Route
-    //           path="/connexion"
-    //           element={<Login onLogin={handleLogin} />}
-    //         />
-    //         <Route path="/inscription" element={<SignUp />} />
-    //         <Route path="/content" element={<MediathequeRessource />} />
-          
-    //         <Route path="/artiste" element={<Artiste />} />
-    //         <Route path="/curateur" element={<Curateur />} />
-    //         <Route path="/visite" element={<Visite />} />
-    //         <Route path="*" element={<div>Page Not Found</div>} />
-    //       </Routes>
-    //     </div>
+            <Route path="/gallerie" element={<Gallery />} />
+            <Route path="/forum" element={<Forum />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route
+              path="/connexion"
+              element={<Login onLogin={handleLogin} />}
+            />
+            <Route path="/inscription" element={<SignUp />} />
+            <Route path="/content" element={<MediathequeRessource />} />
+            <Route path="/artiste" element={<Artiste />} />
+            <Route path="/curateur" element={<Curateur />} />
+            <Route path="/visite" element={<Visite />} />
+            <Route path="*" element={<div>Page Not Found</div>} />
+          </Routes>
+        </div>
    
-    //   </BrowserRouter>
+      </BrowserRouter>
 
-    //   <div>
-    //     <Footer />
-    //   </div>
+      <div>
+        <Footer />
+      </div>
 
-    // </div>
-    <Visite/>
+    </div>
+    // <Visite/>
   );
 }
 
