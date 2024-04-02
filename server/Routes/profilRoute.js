@@ -19,7 +19,10 @@ profilRoutes.get('/:userId', profilController.showProfilById);
 
 // Modification d'un profil
 
-profilRoutes.put('/:userId',upload.fields([{ name: 'profilImage', maxCount: 1 }, { name: 'coverImage', maxCount: 1 }]), profilController.editProfil);
+profilRoutes.put('/', upload.fields([
+    { name: 'profileImage', maxCount: 1 },
+    { name: 'coverImage', maxCount: 1 }
+]), profilController.editProfil);
 
 // Supprimer un profil
 

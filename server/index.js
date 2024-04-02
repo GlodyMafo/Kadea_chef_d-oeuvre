@@ -37,6 +37,8 @@ app.use('/question', questionRoute);
 
 app.use('/response', responseRoute);
 
+app.use('/les_images', express.static('les_images'));
+
 
 // app.get('/protected', midleWare, (req, res) => {
 //     res.json({ message: 'Contenu protégé' });

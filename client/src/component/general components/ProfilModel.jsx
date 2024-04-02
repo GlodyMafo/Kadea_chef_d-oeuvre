@@ -1,4 +1,3 @@
-import avatar from "client/src/assets/images/Glody.png";
 import cover from "client/src/assets/images/pexels-daian-gan-102127.jpg";
 import Button from "./Button";
 import React, { useState, useEffect } from "react";
@@ -48,7 +47,7 @@ function ProfilModel() {
         });
 
         setUserProfil(response.data);
-        console.log(response.data);
+        // console.log(response.data);
        
       } catch (error) {
         console.error(
@@ -61,6 +60,17 @@ function ProfilModel() {
     fetchUserProfile();
   }, []);
 
+  const serverUrl = 'http://localhost:8000/'; 
+
+  // const pathProfile= userProfil.profileImage
+
+
+  // const avatar = serverUrl+pathProfile
+ 
+
+  // console.log(userProfil.profileImage);
+  console.log(userProfil.profileImage);
+
   
   return (
     <>
@@ -72,7 +82,8 @@ function ProfilModel() {
           <div className="flex items-center p-14  w-full absolute bottom-0 right-0 bg-[#0000003a]">
             <img
               className="w-40 h-40 border rounded-full border-4 border-green-500"
-              src={userProfil && userProfil.profilImage ? userProfil.profilImage : defaultAvatar}
+              // src={userProfil && avatar ? avatar : defaultAvatar}
+              // src={}
               alt="image de profil"
             />
             <div className="flex w-full justify-between pl-6">
@@ -120,7 +131,7 @@ function ProfilModel() {
           style={customStyles}
           shouldCloseOnOverlayClick={true}
         >
-          <ModalProfil />
+          <ModalProfil/>
         </ReactModal>
       </div>
     </>
