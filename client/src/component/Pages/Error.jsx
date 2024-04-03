@@ -21,9 +21,9 @@ function Error() {
         </svg>
       </div>
       <p class="mt-4 text-lg text-gray-600">
-        Retournons à l'accueil
+        Retournons à
         <a href="/" class="text-green-500 text-lg mx-1">
-          Accueil
+          l'accueil
         </a>
         .
       </p>

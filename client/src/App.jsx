@@ -23,12 +23,9 @@ function App() {
   const Token = JSON.parse(localStorage.getItem("myToken"));
   const [token, setToken] = useState(Token);
 
-
-
   const handleLogin = () => {
 
   };
-
 
   return (
     <div className="font-Mont">
@@ -36,7 +33,7 @@ function App() {
         <div>
           <Nav />
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<Home  />} />
             <Route path="/mediatheque" element={<Mediatheque /> }/>
             <Route path="/gallerie" element={token ? <Gallery /> : <Login />} />
             <Route path="/forum" element={token ? <Forum /> : <Login />} />
@@ -53,9 +50,8 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
 
-    
     </div>
   );
 }

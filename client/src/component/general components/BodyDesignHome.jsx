@@ -17,31 +17,31 @@ import ProverbeDisplay from "./Proverbe";
 
 function BodySection1() {
   return (
-    <div className="w-full pt-20">
-      <div className="relative mx-auto  w-[1300px]">
+    <div className="w-full px-10 md:px-0 pt-10 md:pt-20">
+      <div className="relative mx-auto  md:w-[1300px]">
         <div className="flex w-full">
-          <div className="w-[60%] p-12 bg-gray-100 border border-8 border-gray-400">
-            <p className="text-green-500 font-semibold text-2xl pt-8 pb-6">
+          <div className="w-[60%] p-8 md:p-12 bg-gray-100 border border-8 border-gray-400">
+            <p className="text-green-500 font-semibold text-sm md:text-2xl md:pt-8 pb-6">
               PALETTE CULTURELLE AFRICAINE.
             </p>
-            <h1 className="font-bold text-4xl pb-6">
+            <h1 className="font-bold text-xl md:text-4xl pb-6">
               PERCEZ LES SECRETS DES TRADITIONS AFRICAINES.
             </h1>
-            <p className="pb-6 pr-14 text-lg">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-              faucibus nisi ac arcu mattis, vitae imperdiet arcu tempus. Aenean
-              fermentum sem vel tempus laoreet. <br />
-              Aenean non lacinia nibh. Aliquam elementum arcu ut sapien porta,
-              nec efficitur quam bibendum. Aliquam eget imperdiet nibh. Quisque
-              non metus quis enim aliquet placerat eu vitae tellus. Aliquam
-              elementum arcu ut sapien porta, nec efficitur quam bibendum.
-              Aliquam eget imperdiet nibh. Quisque non metus quis enim aliquet
-              placerat eu vitae tellus. Aenean non lacinia nibh. Aliquam
-              elementum arcu ut sapien porta, nec efficitur quam bibendum.
-              Aliquam eget imperdiet nibh. Quisque non metus quis enim aliquet
-              placerat eu vitae tellus. Aliquam elementum arcu ut sapien porta,
-              nec efficitur quam bibendum. Aliquam eget imperdiet nibh. Quisque
-              non metus quis enim aliquet placerat eu vitae tellus.
+            <p className="pb-6 pr-4 md:pr-14 text-xs md:text-lg">
+              Notre médiathèque vous ouvre les portes d'un monde empreint de mystère et de
+              sagesse. <br />
+              Explorez les rituels de
+              guérison, les légendes transmises de génération en génération, et
+              les coutumes uniques qui ont façonné les sociétés africaines.
+              <br /> <br />
+              Découvrez comment ces traditions sont intimement liées à
+              l'environnement, à la spiritualité et à la vie quotidienne des
+              communautés qui les pratiquent. <br /> <br /> Que vous soyez passionné par
+              l'anthropologie, l'histoire ou simplement avide de découvrir de
+              nouveaux horizons culturels, notre médiathèque vous offre une plongée
+              immersive dans les trésors cachés de l'Afrique. <br /> Laissez-vous inspirer, émerveiller et
+              éduquer par la sagesse ancienne qui réside au cœur de ce continent
+              dynamique et vibrant.
             </p>
             <Link to="/mediatheque">
               <Button
@@ -50,11 +50,11 @@ function BodySection1() {
               />
             </Link>
           </div>
-          <div className="w-[40%]   ml-14">
+          <div className="w-[40%] mt-[10rem]  md:mt-0 ml-14">
             <img src={mask} alt="" className="w-full " />
           </div>
         </div>
-        <div className="w-[450px] border border-8 border-gray-400 absolute right-[180px] -bottom-28">
+        <div className="md:w-[450px] w-[250px] border border-8 border-gray-400 absolute right-8 md:right-[180px] bottom-[16rem] md:-bottom-28">
           <img src={girlMask} alt="" />
         </div>
       </div>
@@ -68,7 +68,6 @@ export default BodySection1;
 
 export function BodySection2() {
   return (
-
     <div className="p-20">
       <div className="w-full pt-[8rem] ">
         <div className="ml-[30rem] ">
@@ -101,7 +100,7 @@ export function BodySection2() {
         <div className="flex justify-between items-center border-b pb-6 px-8">
           <p className="text-3xl font-semibold">Gallerie d'œuvres d'art</p>
           <Link to="/gallerie">
-          <p className="text-2xl hover:text-green-500">Voir plus.</p>
+            <p className="text-2xl hover:text-green-500">Voir plus.</p>
           </Link>
         </div>
         <div className="p-8">
@@ -118,11 +117,10 @@ export function BodySection2() {
           </p>
         </div>
         <div className="pt-2">
-          <CarousselleExpo  />
+          <CarousselleExpo />
         </div>
       </div>
     </div>
-    
   );
 }
 

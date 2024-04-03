@@ -8,30 +8,30 @@ import Nav from "./NavBar";
 
 function Home() {
   return (
-    <div className="bg-white pb-[70rem]">
-			
+    <div className="bg-black pb-[70rem]">
       {/* HEADER */}
       <div
-        className=" bg-center bg-cover h-screen"
+        className="bg-center bg-cover h-screen"
         style={{ backgroundImage: "url('src/assets/images/background.jpg')" }}
       >
-        <div className="flex px-20 items-center content-center pt-20">
-          <div>
-            <h1 className="text-9xl font-bold  text-gray-100 pb-10 pt-20">
+        <div className="flex flex-wrap md:flex md:justify-between md:pt-[14rem]  md:w-full md:px-[8rem] px-10 items-center content-center pt-20">
+          <div className="md:w-[60%]">
+            <h1 className="text-6xl flex md:text-9xl font-bold  text-gray-100 pb-10 pt-12 md:pt-20">
               Afrikulture <span className="text-green-500">.</span>
             </h1>
-            <p className="w-4/5 text-3xl text-white pb-10">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Voluptatum quaerat, magni dolores inventore assumenda tenetur
-              natus? Corporis dolore doloribus amet sequi suscipit similique
-              deleniti dignissimos veritatis, quae perspiciatis iure nihil.
+            <p className="md:w-4/5 text-xl md:text-3xl text-white pb-2 md:pb-10">
+              Explorez la richesse de la culture africaine. <br /> Des traditions
+              anciennes à la créativité contemporaine, découvrez un continent en
+              perpétuelle évolution. <br />Découvrez ses langues, ses arts, sa
+              musique, ses danses, ses cuisines et plus encore. <br />Un voyage au
+              cœur d'une diversité culturelle vibrante.
             </p>
-            <a href="" className="text-3xl text-green-500">
+            <a href="" className="md:text-3xl text:xl text-green-500">
               Lire plus.
             </a>
           </div>
-          <div>
-            <p className="text-center text-3xl text-white pb-10 pt-20">
+          <div className="">
+            <p className="text-center text-2xl md:text-3xl text-white pb-10 md:pt-20">
               Nos Evenements à venir
             </p>
             <Events class="max-w-lg p-10 mb-10 bg-black text-gray-100" />
@@ -51,7 +51,6 @@ function Home() {
         <BodySection3 />
       </div>
     </div>
-     
   );
 }
 
