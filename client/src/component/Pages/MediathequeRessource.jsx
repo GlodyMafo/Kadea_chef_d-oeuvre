@@ -23,11 +23,17 @@ function MediathequeRessource() {
       <div className="flex">
         <div className="grid-rows-3 w-4/5 px-[8rem] py-[4rem] border-r ">
           <div className="flex justify-between">
+            <a href="H4sIAAAAAAAAAONgFuLUz9U3SEk3zjNU4gAxTcrTM7QUspOt9HPykxNLMvPz9JPz80oy81LzSqyS80vzSooyU4sfMQZxC7z8cU9YynPSmpPXGJ25CGoREudicwWKllQK8UpxcyHstWLSYKpi4mDgWcTK6ptYlJ88gY0RAIcsJeuZAAAA">
             <MediathequeContent title="L'afrique et ses pays" src={afrique} />
+            </a>
+            
+
+            <Link to="/read">
             <MediathequeContent
               title="Littérature et Mythologie"
               src={litterature}
             />
+            </Link>
             <MediathequeContent title="Pratique Agricole" src={agricole} />
           </div>
           <div className="flex justify-between pt-14">

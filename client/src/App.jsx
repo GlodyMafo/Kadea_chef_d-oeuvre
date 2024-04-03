@@ -15,21 +15,20 @@ import Nav from "./component/Pages/NavBar";
 import Login from "./component/general components/Login";
 import SignUp from "./component/general components/SignUp";
 import Admin from "./component/Pages/Admin";
+import PdfRending from "./component/general components/pdfRender";
+import Error from "./component/Pages/Error";
 
 function App() {
-  const [token, setToken] = useState("");
-  const [role, setRole] = useState("");
 
-  const handleLogin = (token, role) => {
-    setToken(token);
-    setRole(role);
+  const Token = JSON.parse(localStorage.getItem("myToken"));
+  const [token, setToken] = useState(Token);
 
-    console.log(token);
-    console.log(role);
+
+
+  const handleLogin = () => {
+
   };
 
-  // const currentUser=role
-  // const isConnect=token
 
   return (
     <div className="font-Mont">
@@ -38,39 +37,27 @@ function App() {
           <Nav />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="/mediatheque" element={<Mediatheque />} />
-           
-            <Route path="/gallerie" element={<Gallery />} />
-            <Route path="/forum" element={<Forum />} />
+            <Route path="/mediatheque" element={<Mediatheque /> }/>
+            <Route path="/gallerie" element={token ? <Gallery /> : <Login />} />
+            <Route path="/forum" element={token ? <Forum /> : <Login />} />
             <Route path="/contact" element={<Contact />} />
-            <Route
-              path="/connexion"
-              element={<Login onLogin={handleLogin} />}
-            />
+            <Route path="/connexion" element={<Login onLogin={handleLogin} />} />
             <Route path="/inscription" element={<SignUp />} />
-            <Route path="/content" element={<MediathequeRessource />} />
-            <Route path="/artiste" element={<Artiste />} />
-            <Route path="/curateur" element={<Curateur />} />
+            <Route path="/content" element={token ? <MediathequeRessource /> : <Login />}  />
+            <Route path="/admin" element={token ? <Admin /> : <Login />} />
+            <Route path="/artiste" element={token ? <Artiste /> : <Login />} />
+            <Route path="/curateur" element={token ? <Curateur /> : <Login />} />
             <Route path="/visite" element={<Visite />} />
-            <Route path="*" element={<div>Page Not Found</div>} />
+            <Route path="/read" element={<PdfRending />} />
+            <Route path="*" element={<Error/>} />
           </Routes>
         </div>
-   
       </BrowserRouter>
+      <Footer />
 
-      <div>
-        <Footer />
-      </div>
-
+    
     </div>
-    // <Visite/>
   );
 }
 
 export default App;
-
-function RedirectToConnexion() {
-  const navigate = useNavigate();
-  navigate("/connexion");
-  return null;
-}

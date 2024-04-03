@@ -5,6 +5,7 @@ import ModalProfil from "./ModalProfil";
 import ReactModal from "react-modal";
 import axios from "axios";
 import defaultAvatar from 'client/src/assets/icons/carbon_user-avatar-filled.svg'
+import defaultCover from 'client/src/assets/images/DEFAULT_COVER.jpeg'
 
 function ProfilModel() {
   const customStyles = {
@@ -49,6 +50,7 @@ function ProfilModel() {
         setUserProfil(response.data);
         // console.log(response.data);
        
+       
       } catch (error) {
         console.error(
           "Erreur lors de la récupération des informations de profil:",
@@ -60,16 +62,13 @@ function ProfilModel() {
     fetchUserProfile();
   }, []);
 
+
   const serverUrl = 'http://localhost:8000/'; 
+  const pathProfile=userProfil?.profileImage;
+  const pathCover=userProfil?.coverImage;
 
-  // const pathProfile= userProfil.profileImage
-
-
-  // const avatar = serverUrl+pathProfile
- 
-
-  // console.log(userProfil.profileImage);
-  console.log(userProfil.profileImage);
+  const avatar = serverUrl+pathProfile
+  const cover = serverUrl+pathCover
 
   
   return (
@@ -77,13 +76,12 @@ function ProfilModel() {
       <div className="relative">
         <div className="relative w-full  ">
           <div>
-            <img className="h-[17.1rem] w-full" src={cover} alt="" />
+            <img className="h-[17.1rem] w-full" src={userProfil && cover ? cover : defaultCover} alt="" />
           </div>
           <div className="flex items-center p-14  w-full absolute bottom-0 right-0 bg-[#0000003a]">
             <img
               className="w-40 h-40 border rounded-full border-4 border-green-500"
-              // src={userProfil && avatar ? avatar : defaultAvatar}
-              // src={}
+              src={userProfil && avatar ? avatar : defaultAvatar}
               alt="image de profil"
             />
             <div className="flex w-full justify-between pl-6">
