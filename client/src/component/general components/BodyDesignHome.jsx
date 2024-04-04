@@ -68,11 +68,11 @@ export default BodySection1;
 
 export function BodySection2() {
   return (
-    <div className="p-20">
+    <div className="md:p-20 md:ml-0">
       <div className="w-full pt-[8rem] ">
-        <div className="ml-[30rem] ">
+        <div className="md:ml-[30rem] ml-[8rem] ">
           <div className="relative  w-11/12 ">
-            <div className="bg-gray-100 p-8 text-center text-2xl h-[10rem] w-3/4 italic">
+            <div className="bg-gray-100 p-8 text-center md:text-2xl h-[10rem] w-3/4 italic">
               <ProverbeDisplay />
               <p className="not-italic pt-4"> _proverbes africains</p>
             </div>
@@ -96,11 +96,11 @@ export function BodySection2() {
 
       {/* GALLERIE D'OEUVRES D'ART */}
 
-      <div className="px-14 pt-[10rem] ">
-        <div className="flex justify-between items-center border-b pb-6 px-8">
-          <p className="text-3xl font-semibold">Gallerie d'œuvres d'art</p>
+      <div className="md:px-14  px-4 pt-12 md:pt-[10rem] ">
+        <div className="flex justify-between items-center border-b pb-6 px-2 md:px-8">
+          <p className="md:text-3xl text-xl font-semibold">Gallerie d'œuvres d'art</p>
           <Link to="/gallerie">
-            <p className="text-2xl hover:text-green-500">Voir plus.</p>
+            <p className="md:text-2xl text-sm hover:text-green-500">Voir plus.</p>
           </Link>
         </div>
         <div className="p-8">
@@ -110,9 +110,9 @@ export function BodySection2() {
       {/* 
       GALLERIE D'EXPOSITIONS VIRTUELLES */}
 
-      <div className="px-14 pt-[4rem] ">
+      <div className="md:x-14 px-6 md:px-0 md:pt-[4rem] ">
         <div className=" border-b pb-6 ">
-          <p className="text-3xl font-semibold">
+          <p className="md:text-3xl text-xl font-semibold">
             Dernières expositions virtuelles
           </p>
         </div>
@@ -129,14 +129,14 @@ export function BodySection3() {
     <div className="">
       <div className="w-3/5 mx-auto ">
         <div className="text-center text-xl">
-          <h2 className="text-3xl font-semibold pb-6">Visiter l'afrique</h2>
-          <p className="pb-6">
+          <h2 className="md:text-3xl font-semibold pb-4 md:pb-6">Visiter l'afrique</h2>
+          <p className="md:pb-6 pb-4 text-sm md:text-xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in
             tempus ipsum, ac ornare quam. Suspendisse potenti. Aenean luctus
             commodo mauris ut egestas. Phasellus dictum lorem a auctor
             tincidunt.
           </p>
-          <a href="" className="text-green-500 font-lg">
+          <a href="" className="text-green-500 text-sm md:font-lg">
             Lire plus.
           </a>
         </div>

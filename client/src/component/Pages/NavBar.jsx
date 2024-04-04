@@ -88,11 +88,11 @@ const Nav = () => {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="flex items-center justify-between border-b bg-[#0F1A22] shadow-md">
-      <div className=" w-full fixed top-0 left-0">
-        <div className="md:flex items-center justify-between bg-[#0F1A22] border-b md:px-10 px-7">
+    <div className="flex items-center justify-between bg-[#0F1A22] shadow-md">
+      <div className=" w-full fixed z-10 top-0 left-0">
+        <div className="md:flex items-center justify-between bg-[#0F1A22] border-b border-1 border-gray-300 md:px-10 px-7">
           <div className=" cursor-pointer  flex items-center font-Coiny text-gray-800">
-            <div className="flex items-center p-4  border-r">
+            <div className="flex items-center p-4  border-r border-1 border-gray-200">
               <Link to="/">
                 <svg
                   width="50"

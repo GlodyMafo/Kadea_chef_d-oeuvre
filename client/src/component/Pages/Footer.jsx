@@ -4,13 +4,13 @@ function Footer() {
   return (
     <div>
       <div
-        className=" bg-center bg-cover h-screen"
+        className=" bg-center bg-cover md:h-screen"
         style={{
           backgroundImage: "url('src/assets/images/Footer.jpg')",
         }}
       >
-        <div className="bg-[#00000076] h-3/5">
-          <div className="text-center px-[25rem] pt-[10rem] pb-[5rem] text-2xl text-gray-200">
+        <div className="bg-[#00000076] py-10 h-3/5">
+          <div className="text-center px-2 md:px-[25rem] md:pt-[10rem] pb-8 md:pb-[5rem] md:text-2xl text-gray-200">
             <p>
               Vous etes Artiste, Curateur d’arts , organisateur d’événement ou
               vous avez besoin d’etre contibuteur aux secrets traditionnelles
@@ -30,8 +30,9 @@ function Footer() {
           </div>
         </div>
 
-        <div className="bg-black h-2/5 text-white flex justify-between px-[10rem] py-[6rem] ">
-          <div className="flex flex-col  items-center">
+        <div className="bg-black h-2/5 text-white px-10 flex justify-between md:px-[10rem] py-[6rem] ">
+          <div className="flex flex-col w-2 md:w-auto items-center">
+            <div className="mx-auto md:mx-0 md:pt-0 pt-[6rem] pl-[10rem] md:pl-0 h-2 pb-14 md:pb-0 md:h-0">
             <svg
               width="180"
               height="260"
@@ -44,15 +45,16 @@ function Footer() {
                 fill="#12C081"
               />
             </svg>
+            </div>
 
-            <h1 className="text-4xl font-bold pb-10 pt-6 pl-4">
+            <h1 className="md:text-4xl flex font-bold pb-10 pt-6 md:pl-4 pl-[10rem]">
               Afrikulture <span className="text-green-500">.</span>
             </h1>
           </div>
 
           <div>
-            <h2 className="pb-6 text-xl font-medium">Liens rapides</h2>
-            <ul className="text-lg text-gray-200 cursor-pointer ">
+            <h2 className="pb-6 md:text-xl text-xs font-medium">Liens rapides</h2>
+            <ul className="md:text-lg text-xs text-gray-200 cursor-pointer ">
               <li className="hover:text-green-500">Accueil</li>
               <li className="hover:text-green-500">A propos</li>
               <li className="hover:text-green-500">Meditheque</li>
@@ -61,8 +63,8 @@ function Footer() {
           </div>
 
           <div>
-            <h2 className="pb-6 text-xl font-medium">Liens importants</h2>
-            <ul className="text-lg text-gray-200 cursor-pointer hover:text-white">
+            <h2 className="pb-6 md:text-xl text-xs font-medium">Liens importants</h2>
+            <ul className="md:text-lg text-xs text-gray-200 cursor-pointer hover:text-white">
               <li className="hover:text-green-500">FAQ</li>
               <li className="hover:text-green-500">Support</li>
               <li className="hover:text-green-500">Police et Confidentialité</li>
@@ -71,8 +73,8 @@ function Footer() {
           </div>
 
           <div>
-            <h2 className="pb-6 text-xl font-medium">Contacts Direct</h2>
-            <ul className="text-lg text-gray-200 cursor-pointer hover:text-white">
+            <h2 className="pb-6 md:text-xl text-xs font-medium">Contacts Direct</h2>
+            <ul className="md:text-lg text-xs text-gray-200 cursor-pointer hover:text-white">
               <li className="hover:text-green-500">Phone : +243 83 0117 735</li>
               <li className="hover:text-green-500">Email : glodymafokis@gmail.com</li>
               <li className="hover:text-green-500">Send a message</li>
@@ -82,7 +84,7 @@ function Footer() {
         </div>
         
       </div>
-      <p className="text-gray-100 bg-black pb-2 text-center">Copyright © 2024-Kadea-Code-Credit-GlodyDev</p>
+      <p className="text-gray-100 bg-black pb-2 pt-6 md:pt-0 text-center">Copyright © 2024-Kadea-Code-Credit-GlodyDev</p>
     </div>
   );
 }

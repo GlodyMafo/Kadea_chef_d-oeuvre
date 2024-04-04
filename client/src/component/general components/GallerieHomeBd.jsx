@@ -7,21 +7,21 @@ function GalleryHomePg() {
   return (
     <div className="flex justify-around">
       <div className="flex pr-10">
-        <div className=" w-[25rem] pr-10">
+        <div className=" md:w-[25rem] pr-10">
           <img src={art1} alt="" />
         </div>
 
-        <div className=" w-[21.4rem]">
+        <div className=" md:w-[21.4rem]">
           <img className="pb-10" src={art2} alt="" />
           <img src={art2} alt="" />
         </div>
       </div>
       <div className="flex">
-        <div className=" w-[25rem] pr-10">
+        <div className=" md:w-[25rem] pr-10">
           <img src={art1} alt="" />
         </div>
 
-        <div className=" w-[21.4rem]">
+        <div className=" md:w-[21.4rem]">
           <img className="pb-10" src={art2} alt="" />
           <img src={art2} alt="" />
         </div>

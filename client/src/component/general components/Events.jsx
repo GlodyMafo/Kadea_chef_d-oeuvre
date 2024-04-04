@@ -22,7 +22,7 @@ export default function Events(props) {
       <p className="pb-6">Par : Israel Nzila</p>
       <div className="w-4/5 flex  pl-16">
         <Link to="/visite">
-      <Button name="PARTICIPER" class="bg-green-500 text-white text-sm font-semibold p-2.5 px-4 rounded-3xl mr-8 hover:bg-inherit hover:text-green-500 hover:border-green-500 hover:border-2 ease duration-500"/>
+      <Button name="VISITER" class="bg-green-500 text-white text-sm font-semibold p-2.5 px-4 rounded-3xl mr-8 hover:bg-inherit hover:text-green-500 hover:border-green-500 hover:border-2 ease duration-500"/>
       </Link>
       <Button name="SPONSORISER" class=" bg-inherit text-sm text-green-500 font-semibold border-2 border-green-500  p-2.5 px-4 rounded-3xl hover:text-white hover:bg-green-500 hover:border-0 ease duration-500"/>
       </div>

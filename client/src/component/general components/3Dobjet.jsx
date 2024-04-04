@@ -18,7 +18,7 @@ const Object = () => {
       1000
     );
     // const control=new OrbitControls()
-    camera.position.set(7.66, 0.24, -1.66);
+    camera.position.set(1, 1, 1);
     camera.rotation.set(-2.75, 1.33, 2.76);
 
     scene.add(camera);
@@ -48,33 +48,33 @@ controls.enableDamping = true;
       //   console.log(camera.rotation);
       // })
 
-      window.addEventListener("mouseup", function () {
-        switch (position) {
-          case 0:
-            cameraMove(-0.49, 1.85, -2.08);
-            cameraRotation(1.26, 1.51, -1.25)
-            position = 1
-            break;
+      // window.addEventListener("mouseup", function () {
+      //   switch (position) {
+      //     case 0:
+      //       cameraMove(-0.49, 1.85, -2.08);
+      //       cameraRotation(1.26, 1.51, -1.25)
+      //       position = 1
+      //       break;
 
-          case 1:
-            cameraMove(-1.52, 0.32, 2.19);
-            cameraRotation(-3.13, 1.31, 3.13)
-            position = 2
-            break;
+      //     case 1:
+      //       cameraMove(-1.52, 0.32, 2.19);
+      //       cameraRotation(-3.13, 1.31, 3.13)
+      //       position = 2
+      //       break;
 
-          case 2:
-            cameraMove(0.10, 1.26, 0.09);
-            cameraRotation(0.12, 0.57, 0.06)
-            position = 3
-            break;
+      //     case 2:
+      //       cameraMove(0.10, 1.26, 0.09);
+      //       cameraRotation(0.12, 0.57, 0.06)
+      //       position = 3
+      //       break;
 
-          case 3:
-            cameraMove(-3.34, 9.56, -1.40);
-            cameraRotation(-1.57, -0.68, -1.57)
-            position = 4
-            break;
-        }
-      })
+      //     case 3:
+      //       cameraMove(-3.34, 9.56, -1.40);
+      //       cameraRotation(-1.57, -0.68, -1.57)
+      //       position = 4
+      //       break;
+      //   }
+      // })
 
       // GUI pour recupérer les valeurs sur l'écran
 
